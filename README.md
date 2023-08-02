@@ -1,6 +1,6 @@
 # Building a Diabetes Prediction Model through Data Analysis and Feature Engineering
 
-[](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSby5v3dwIDZLELQr0BOde0MDTv-1pAnW42zg&usqp=CAU)
+[!Aciklama](https://www.eczacidansaglik.com/haber/t_1632829586.jpg)
 A machine learning model is requested to be developed that can predict whether individuals are diabetic or not when their features are provided. Before developing the model, it is expected to perform the necessary data analysis and feature engineering steps.
 
 ## Data Set Story
