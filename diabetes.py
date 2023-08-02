@@ -138,7 +138,7 @@ def grab_col_names(dataframe, cat_th=10, car_th=20):
 cat_cols, num_cols, cat_but_car = grab_col_names(df)
 
 
-# 2.4. Analysing numeric and categorical variables
+# 2.4. Analyzing numeric and categorical variables
 #############################################
 def cat_summary(dataframe, col_name, plot=False):
     print(pd.DataFrame({col_name: dataframe[col_name].value_counts(),
@@ -172,7 +172,7 @@ for col in num_cols:
     num_summary(df, col, plot=True)
 
 
-# 2.5. Analysing target variables, 'OUTCOME'
+# 2.5. Analyzing target variables, 'OUTCOME'
 #############################################
 def target_summary_with_num(dataframe, target, numerical_col):
     print(dataframe.groupby(target).agg({numerical_col: 'mean'}), end='\n\n\n')
@@ -258,7 +258,7 @@ df.drop(axis=0, index=rows_to_drop, inplace=True)  # removing outliers
 df.shape  # the number of remaining observations after removing the outliers
 
 
-# 2.7. Analysing and imputing missing values
+# 2.7. Analysing and Imputing Missing Values
 ############################################
 def missing_values_table(dataframe, na_name=False):
     na_columns = [col for col in dataframe.columns if dataframe[col].isnull().sum() > 0]
@@ -314,7 +314,7 @@ scores = pd.DataFrame(np.sort(df_scores))
 scores.plot(stacked=True, xlim=[0, 50], style='.-')  # visualizing outlier scores
 plt.show()
 
-th = np.sort(df_scores)[15]  # the outlier threshold value - the observation at index 10
+th = np.sort(df_scores)[15]  # the outlier threshold value - the observation at index 15
 # -1.5086227874474987
 
 rows_to_drop = df[df_scores < th].index
@@ -322,7 +322,7 @@ df.drop(axis=0, index=rows_to_drop, inplace=True)  # removing outliers
 df.shape  # the number of remaining observations after removing the outliers
 
 
-# 2.7. Correlation analysis
+# 2.8. Correlation Analysis
 ##########################
 def high_correlated_cols(dataframe, plot=False, corr_th=0.90):
     corr = dataframe.corr()
@@ -343,7 +343,7 @@ high_correlated_cols(df, plot=True)
 # Note: It has been observed that there is no correlation between the variables.
 
 
-# 2.9. Creating new variables
+# 2.9. Creating New Variables
 ####################################
 df['HOMA-IR'] = (df['GLUCOSE'] * df['INSULIN']) / 405
 
@@ -355,7 +355,7 @@ df['BODY_FAT_PERC'] = (df['SKINTHICKNESS'] / df['BMI']) * 100
 df['BP_AGE_INT'] = df['BLOODPRESSURE'] * df['AGE']
 
 
-# 2.10. Performing the process of converting categorical variables into numerical values - Encoding
+# 2.10. Encoding - Performing the process of converting categorical variables into numerical values 
 ###################################################################################################
 cat_cols, num_cols, cat_but_car = grab_col_names(df)
 # cat_cols --> ['OUTCOME', 'BMI_CAT']
@@ -380,7 +380,7 @@ df = label_encoder(df, col)
 df.head()
 
 
-# 2.11. Scaling numeric variables
+# 2.11. Scaling Numeric Variables
 #################################
 scaler = StandardScaler()
 df[num_cols] = scaler.fit_transform(df[num_cols])
@@ -407,7 +407,7 @@ print("Initial accuracy:", initial_accuracy)
 # Initial accuracy: 0.8161434977578476
 
 
-# 3.2. Feature importance
+# 3.2. Feature Importance
 #########################
 feature_importance = rf_model.feature_importances_
 
@@ -419,7 +419,7 @@ for feature, importance in sorted_features:
     print(f"{feature}: {importance}")
 
 
-# 3.3. Forward feature selection
+# 3.3. Forward Feature Selection
 ################################
 best_feature_combination = []
 best_accuracy = initial_accuracy
